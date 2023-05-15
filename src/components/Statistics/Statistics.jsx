@@ -5,21 +5,19 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <ul className={css.statList}>
       <li className={css.item}>
-        <span className={css.label}>Good: {good}</span>
+        <span>Good: {good}</span>
       </li>
       <li className={css.item}>
-        <span className={css.label}>Neutral: {neutral}</span>
+        <span>Neutral: {neutral}</span>
       </li>
       <li className={css.item}>
-        <span className={css.label}>Bad: {bad}</span>
+        <span>Bad: {bad}</span>
       </li>
       <li className={css.item}>
-        <span className={css.label}>Total: {total()}</span>
+        <span>Total: {total()}</span>
       </li>
       <li className={css.item}>
-        <span className={css.label}>
-          Positive feedback: {positivePercentage()}%
-        </span>
+        <span>Positive feedback: {positivePercentage()}%</span>
       </li>
     </ul>
   );

@@ -12,8 +12,7 @@ class App extends Component {
     bad: 0,
   };
 
-  handleButton = item => {
-    console.log(item);
+  handleButtonClick = item => {
     this.setState(prevState => {
       return { [item]: prevState[item] + 1 };
     });
@@ -53,7 +52,7 @@ class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onLeaveFeedback={this.handleButton}
+            onLeaveFeedback={this.handleButtonClick}
           />
         </Section>
         <Section title="Statistic">{statistic}</Section>
