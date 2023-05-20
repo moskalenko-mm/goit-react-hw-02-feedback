@@ -32,20 +32,6 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    let statistic;
-    if (good || neutral || bad) {
-      statistic = (
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback}
-          positivePercentage={this.countPositiveFeedbackPercentage}
-        ></Statistics>
-      );
-    } else {
-      statistic = <Notification message="There is no feedback"></Notification>;
-    }
 
     return (
       <Container>
@@ -55,7 +41,19 @@ class App extends Component {
             onLeaveFeedback={this.handleButtonClick}
           />
         </Section>
-        <Section title="Statistic">{statistic}</Section>
+        <Section title="Statistic">
+          {this.countTotalFeedback() === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbackPercentage()}
+            />
+          )}
+        </Section>
       </Container>
     );
   }
